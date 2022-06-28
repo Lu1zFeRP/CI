@@ -26,14 +26,14 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          cd C:\
           docker container stop desktop 
           docker container rm desktop
           docker rmi desktop
           docker rmi -f desktop
-          rm .\webcontainers
+          rm C:\webcontainers
+          cd C:\
           git clone https://gitlab.com/nimbussites/webcontainers.git
-          docker build --pull --rm -f "webcontainers\apache-php7.4\Dockerfile" -t desktop:latest "webcontainers\apache-php7.4"
+          docker build --pull --rm -f "C:\webcontainers\apache-php7.4\Dockerfile" -t desktop:latest "webcontainers\apache-php7.4"
           docker run --name desktop -dt desktop
 
 
