@@ -30,8 +30,7 @@ jobs:
           docker container rm desktop
           docker rmi desktop
           docker rmi -f desktop
-          rm C:\webcontainers
-          Y
+          rm C:\webcontainers -Recurse -Force -Confirm:$false
           cd C:\
           git clone https://gitlab.com/nimbussites/webcontainers.git
           docker build --pull --rm -f "C:\webcontainers\apache-php7.4\Dockerfile" -t desktop:latest "webcontainers\apache-php7.4"
